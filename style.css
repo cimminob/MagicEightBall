@@ -1,0 +1,28 @@
+.shaker {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 2s; 
+  
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite; 
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(5px, 10px) rotate(0deg); }
+    10% { transform: translate(-15px, -12px) rotate(-1deg); }
+    20% { transform: translate(-18px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(43px, -11px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-10px,40px) rotate(0deg); }
+    70% { transform: translate(7px, 3px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 3s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }

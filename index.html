@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container is-desktop" id="app">
+        <div class="level-item has-text-centered">
+            <section class="hero">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            Magic 8 Ball
+                        </h1>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="level-item has-text-centered">
+            <img src="8ball.jpg" class="image is-128x128" :class="{shaker: attachShaker}" alt="magic 8 ball pic">
+        </div>
+        <br>
+        <div class="level-item has-text-centered" style="margin-top: 10px">
+            <div class="field">
+                <label for="question" class="label">Ask your question</label>
+                <input class="input is-primary" type="text" v-model="userInput">
+                <br><br>
+                <button type="submit" class="button is-link" @click="ask()">Submit</button>
+                <br><br>
+            </div>
+               
+        </div>
+        <transition name="fade">
+        <div class="level-item has-text-centered" v-bind:style="{visibility: isVisible}" v-if="fadeToggle">
+            <article class="message is-large">
+                <div class="message-header">
+                    <p>{{question}}?</p>
+                </div>
+                <div class="message-body">
+                    {{answer}}
+                </div>
+                <div>
+                    <button class="button is-primary" @click="reset">Reset</button>
+                </div>
+            </article>
+
+        </div>
+        </transition>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
